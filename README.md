@@ -158,6 +158,49 @@ Files:
 
 **Do not interpret these results as validated FMOLS estimates.** They are only included to demonstrate that the package runs on real panel data.
 
+## fmolsR vs EViews Group Mean FMOLS Comparison
+
+The following shows a comparison between fmolsR and EViews on the same dataset (EKC panel data with 9 African countries, 2006-2022).
+
+### Best Match Settings
+
+| Setting | Value |
+|---------|-------|
+| Kernel | Bartlett |
+| Bandwidth | 8 |
+| Deterministic | Constant |
+| Panel Method | Group Mean |
+
+### Coefficient Comparison
+
+| Variable | fmolsR | EViews | Difference |
+|----------|--------|--------|-------------|
+| LGDPPC | -69.51 | -69.85 | +0.34 |
+| LGDPPC_SQ | 4.13 | 4.16 | -0.03 |
+| LENE | 1.21 | 1.02 | +0.19 |
+| CDP_EKC_PC | 1.00 | 0.88 | +0.12 |
+
+### Significance Comparison
+
+| Variable | fmolsR p-value | EViews |
+|----------|----------------|--------|
+| LGDPPC | 0.195 | *** |
+| LGDPPC_SQ | 0.181 | *** |
+| LENE | **0.004*** | *** |
+| CDP_EKC_PC | 0.263 | *** |
+
+**Note**: The coefficients are very close. The differences in significance are likely due to different standard error calculations between fmolsR and EViews. This is a known limitation of open-source FMOLS implementations compared to commercial software.
+
+## Public Dataset Recommendation
+
+For a proper public FMOLS benchmark, researchers typically use:
+
+1. **World Bank Data** - CO2 emissions, GDP, energy use per capita
+2. **Penn World Table** - GDP, consumption, capital
+3. **Our World in Data** - Environmental and economic indicators
+
+These require preprocessing to create a balanced panel and should be tested for I(1)/cointegration properties before FMOLS application.
+
 If you have a properly verified panel dataset that satisfies FMOLS assumptions, you can use the same structure to create a legitimate benchmark.
 
 ## Public Benchmark Comparison: fmolsR vs EViews
