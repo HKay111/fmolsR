@@ -1,0 +1,78 @@
+---
+title: "Validation Workflow"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Validation Workflow}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+# Purpose
+
+This vignette documents a public-safe validation workflow for `fmolsR`.
+
+The package can be released without shipping private benchmark data. The
+recommended approach is to keep raw research data outside the repository and
+validate locally with benchmark bundles.
+
+# Public-safe validation workflow
+
+## Step 1: validate on synthetic data
+
+Use synthetic cointegrated data in examples, README snippets, and automated
+tests. This confirms that:
+
+- the functions run
+- dimensions align correctly
+- one observation per unit is trimmed in the FM transformation stage
+- outputs are internally consistent
+
+## Step 2: validate locally against EViews
+
+When you need software parity checks, create a local benchmark bundle under:
+
+`inst/extdata/eviews_benchmarks/<benchmark_id>/`
+
+Recommended files:
+
+- `settings.txt`
+- `coefficients.csv`
+- `vcov.csv`
+- `lrcov.csv`
+- `notes.md`
+
+Include `data.csv` only if you are comfortable storing that benchmark locally.
+
+## Step 3: compare estimator stages
+
+For difficult parity problems, compare in this order:
+
+1. deterministic specification
+2. first-stage mode (`level` vs `difference`)
+3. kernel and bandwidth
+4. long-run covariance partitions
+5. transformed FMOLS variables
+6. final coefficients
+
+# Release guidance
+
+At the current stage of the package:
+
+- `group_mean` is the safest panel estimator to publish
+- `weighted` should be labeled experimental unless it passes your benchmark test
+- secret research data should never be committed to the repository
+
+# What you need to share for debugging
+
+You do not need to share secret raw data just to improve the package.
+
+Usually the following are enough:
+
+- exact EViews coefficient output
+- exact bandwidth, kernel, and deterministic settings
+- whether the panel is balanced
+- exported long-run covariance tables if available

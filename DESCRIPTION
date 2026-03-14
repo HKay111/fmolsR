@@ -1,0 +1,27 @@
+Package: fmolsR
+Title: Transparent Fully Modified OLS in R
+Version: 0.0.0.9000
+Authors@R:
+    person(given = "Hridayam",
+           family = "Kapila",
+           role = c("aut", "cre"),
+           email = "kapilahridayam@gmail.com")
+Description: This is an undergraduate research project trying to learn how to
+    implement Fully Modified OLS (FMOLS) cointegrating regression in R.
+    The goal is to understand how EViews implements panel FMOLS and recreate
+    it transparently for learning purposes. This is NOT a professionally
+    validated econometric package - it is a learning exercise using AI assistance.
+    Use with caution and validate against trusted software like EViews before
+    publishing results.
+License: GPL-3
+Depends: R (>= 4.1),
+    MASS
+Suggests:
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+VignetteBuilder: knitr
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3

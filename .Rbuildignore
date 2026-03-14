@@ -1,0 +1,6 @@
+^README\.md$
+^data-raw$
+^\.github$
+^fmolsR\.Rcheck$
+^.*\.tar\.gz$
+^.*\.Rhistory$

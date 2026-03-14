@@ -1,0 +1,2 @@
+benchmark_id,eviews_version,estimator,panel_method,trend_spec,additional_trends,first_stage_mode,first_stage_beta,lrcov_method,kernel,bandwidth_method,bandwidth_value,df_adjustment,sample_note,data_file,coef_file,vcov_file,lrcov_file,notes
+example_pooled_const_bw6,14,FMOLS,pooled,const,none,level,homogeneous,kernel,bartlett,fixed,6,yes,balanced panel,data.csv,coefficients.csv,vcov.csv,lrcov.csv,Replace this example row with your real benchmark metadata

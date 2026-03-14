@@ -1,0 +1,3 @@
+"term","estimate","std_error","panel_method","trend","kernel","bandwidth"
+"lvalue",0.61282535,0.00139401,"weighted","const","bartlett",6
+"lcapital",0.31368558,0.00205407,"weighted","const","bartlett",6

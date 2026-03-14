@@ -1,0 +1,79 @@
+---
+title: "Methodology Roadmap"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Methodology Roadmap}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+# Purpose
+
+This vignette explains the current estimator layout in `fmolsR` and the level
+of validation attached to each method.
+
+# Estimator layout
+
+The package is organized in four layers:
+
+1. deterministic-term handling and partial-out logic
+2. first-stage innovations for the stochastic regressors
+3. long-run covariance estimation for the stacked residual-innovation process
+4. FMOLS coefficient estimation using transformed quantities
+
+# Implemented estimators
+
+## Single equation
+
+`fmols_single()` is the reference implementation in the package. It exposes:
+
+- detrended `y` and `x`
+- first-stage innovations
+- long-run covariance partitions
+- FM-corrected `y_plus`
+- transformed design matrices
+
+## Panel estimators
+
+`fmols_panel()` supports three methods:
+
+- `pooled`
+- `weighted`
+- `group_mean`
+
+Current practical guidance:
+
+- use `group_mean` when you need the safest panel estimator in this release
+- use `pooled` for internal comparisons and method development
+- treat `weighted` as experimental until it is matched to your benchmark run
+
+# Observation trimming
+
+The single-equation FMOLS core aligns the dependent variable with first-stage
+innovations by using the transformed sample `y[-1]`. As a result, one ordered
+time observation is dropped per unit in both the single-equation and panel
+implementations.
+
+# Validation strategy
+
+The intended validation ladder is:
+
+1. raw data identity
+2. deterministic purge
+3. first-stage innovations
+4. long-run covariance partitions
+5. transformed FMOLS quantities
+6. final coefficients and covariance matrices
+
+For public releases, synthetic data examples should be used in documentation.
+Private benchmark bundles should stay local unless anonymized.
+
+# References
+
+- Phillips and Hansen (1990)
+- Pedroni (2000)
+- EViews panel cointegration technical documentation

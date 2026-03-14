@@ -1,0 +1,8 @@
+export(fmols_single)
+export(fmols_panel)
+S3method(print,fmols_fit)
+S3method(summary,fmols_fit)
+S3method(print,summary.fmols_fit)
+S3method(print,fmols_panel_fit)
+S3method(summary,fmols_panel_fit)
+S3method(print,summary.fmols_panel_fit)

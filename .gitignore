@@ -1,0 +1,6 @@
+fmolsR.Rcheck/
+*.tar.gz
+*.Rhistory
+inst/extdata/eviews_benchmarks/*/
+!inst/extdata/eviews_benchmarks/README.md
+!inst/extdata/eviews_benchmarks/registry_template.csv

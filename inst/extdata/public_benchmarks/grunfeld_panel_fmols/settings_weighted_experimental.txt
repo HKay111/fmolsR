@@ -1,0 +1,13 @@
+benchmark_id: grunfeld_panel_fmols_weighted_experimental
+dataset_file: grunfeld_panel_fmols.csv
+panel_id: firm
+time_id: year
+dependent_variable: linv
+regressors: lvalue, lcapital
+panel_method: weighted
+trend: const
+first_stage: level
+kernel: bartlett
+bandwidth_method: fixed
+bandwidth_value: 6
+notes: Experimental weighted comparison spec. Use for development, not as the primary public validation target.
