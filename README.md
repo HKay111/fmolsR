@@ -144,20 +144,6 @@ For a proper FMOLS benchmark, you would need panel data where:
 3. There is evidence of cointegration (residual stationarity after FMOLS)
 4. Possibly heterogeneous slopes that justify group-mean
 
-## Public Reproducibility Demo
-
-The repository includes the `Grunfeld` panel dataset as a **technical reproducibility demo only**.
-
-Files:
-
-- `inst/extdata/public_benchmarks/grunfeld_panel_fmols/grunfeld_panel_fmols.csv`
-- `inst/extdata/public_benchmarks/grunfeld_panel_fmols/settings_group_mean.txt`
-- `inst/extdata/public_benchmarks/grunfeld_panel_fmols/settings_weighted_experimental.txt`
-- `inst/extdata/public_benchmarks/grunfeld_panel_fmols/fmolsR_group_mean_reference.csv`
-- `inst/extdata/public_benchmarks/grunfeld_panel_fmols/eviews_group_mean_results_template.csv`
-
-**Do not interpret these results as validated FMOLS estimates.** They are only included to demonstrate that the package runs on real panel data.
-
 ## fmolsR vs EViews Group Mean FMOLS Comparison
 
 The following shows a comparison between fmolsR and EViews on the same dataset (EKC panel data with 9 African countries, 2006-2022).
