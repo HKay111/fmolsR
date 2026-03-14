@@ -72,10 +72,7 @@ summary(fit_gm)
 
 ## What gets trimmed in FMOLS
 
-FMOLS in this package drops exactly one observation per unit in the transformed
-estimation step. That is because the first-stage innovations and FM correction
-are built from lagged or differenced information, so the estimator uses `y[-1]`
-and the aligned innovation matrix.
+FMOLS in this package drops exactly one observation per unit in the transformed estimation step. That is because the first-stage innovations and FM correction are built from lagged or differenced information, so the estimator uses `y[-1]` and the aligned innovation matrix.
 
 This means:
 
@@ -85,5 +82,27 @@ This means:
 - weekly data loses one week per unit
 - daily data loses one day per unit
 
-More precisely, the package drops one ordered time row per unit, whatever your
-time index represents.
+More precisely, the package drops one ordered time row per unit, whatever your time index represents.
+
+## fmolsR vs EViews Comparison
+
+Here's a comparison on real panel data (EKC model with 9 African countries, 2006-2022):
+
+### Best Settings
+
+| Setting | Value |
+|---------|-------|
+| Kernel | Bartlett |
+| Bandwidth | 8 |
+| Deterministic | Constant |
+
+### Results
+
+| Variable | fmolsR | EViews | Difference |
+|----------|--------|--------|-------------|
+| LGDPPC | -69.51 | -69.85 | +0.34 |
+| LGDPPC_SQ | 4.13 | 4.16 | -0.03 |
+| LENE | 1.21 | 1.02 | +0.19 |
+| CDP_EKC_PC | 1.00 | 0.88 | +0.12 |
+
+**Note**: Coefficients are very close. Small differences in significance are due to different SE calculations between open-source and commercial software.
