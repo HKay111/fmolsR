@@ -14,7 +14,8 @@ Description: This is an undergraduate research project trying to learn how to
     Use with caution and validate against trusted software like EViews before
     publishing results.
 License: GPL-3
-Depends: R (>= 4.1),
+Depends: R (>= 4.1)
+Imports:
     MASS
 Suggests:
     knitr,

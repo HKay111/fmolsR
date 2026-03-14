@@ -46,9 +46,4 @@ remotes::install_github("YOUR-GITHUB-USER/fmolsR")
 
 ## Benchmark follow-up
 
-Once you export EViews results for the public `Grunfeld` benchmark, update:
-
-- `README.md`
-- `inst/extdata/public_benchmarks/grunfeld_panel_fmols/eviews_group_mean_results_template.csv`
-
-so the repository shows an explicit public R-vs-EViews comparison.
+If you later add a real public FMOLS benchmark dataset, update `README.md` with the matching EViews comparison only after the dataset passes the required I(1) and cointegration diagnostics.

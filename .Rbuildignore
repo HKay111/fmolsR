@@ -4,3 +4,5 @@
 ^fmolsR\.Rcheck$
 ^.*\.tar\.gz$
 ^.*\.Rhistory$
+^GITHUB_PUBLISH_GUIDE\.md$
+^GITHUB_RELEASE_CHECKLIST\.md$
